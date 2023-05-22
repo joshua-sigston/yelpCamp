@@ -1,0 +1,19 @@
+<header>
+    <div class="mobile_nav">
+        <h1>Logo</h1>
+        <nav>
+            <a href="/campgrounds">Campgrounds</a>
+            <a href="/submit-camp">Add Campground</a>
+            <a href="/top-rated">Top Rated Camps</a>
+            <a href="/camp-hacks">Camp Hacks</a>
+            <div>
+                <% if(!currentUser){ %>
+                    <a href="/login">Login</a>
+                    <a href="/register">Register</a>
+                <% } else { %>
+                    <a href="/logout">Logout</a>
+                <% } %>
+            </div>
+        </nav>
+    </div>
+</header>

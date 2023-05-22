@@ -1,0 +1,135 @@
+/* reset and custom style classes */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-size: 18px;
+    font-family: var(--ff-base);
+    color: var(--clr-blck-two);
+}
+
+body {
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    font-family: var(--ff-paragraph);
+    background-color: var(--clr-white-three);
+    position: relative;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+#root, #__next {
+    isolation: isolate;
+}
+
+/* background image styling */
+/* container:after {
+    content: '';
+    position: absolute;
+    background-color: var(--clr-blue-dark);
+    inset: 0;
+    z-index: -1;
+    opacity: .9; */
+    /* goes in parent selector => */
+    /* position: relative;
+    isolation: isolate;
+} */
+
+/* Root Styles */
+:root {
+    /* colors */
+    --clr-ascent-one: #4ECCA3;
+    --clr-ascent-two: #3FC89B;
+    --clr-ascent-three: #36BC91;
+
+    --clr-white-one: #FBFBFB;
+    --clr-white-two: #EEEEEE;
+    --clr-white-three: #E1E1E1;
+
+    --clr-gry-one: #424851;
+    --clr-gry-two: #393E46;
+    --clr-gry-three: #30343B;
+
+    --clr-blck-one: #232931;
+    --clr-blck-two: #1B1F26;
+
+    /* fonts */
+    --ff-title: 'Work Sans', sans-serif;
+    --ff-sub-title: 'Cuprum', sans-serif;
+    --ff-paragraph: 'Questrial', sans-serif;
+
+    --line-height-lrg: 62px;
+    --line-height-sml: 28px;
+
+    --transition: 300ms ease-in-out;
+    --transition-two: 600ms ease-in-out;
+    --transition-three: 800ms ease-in-out;
+
+}
+
+/* general styles */
+
+.grid {
+    width: 100%;
+    display: grid;
+    gap: 1em;
+}
+
+.flex_row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex_column {
+    display: flex;
+    flex-direction: column;
+}
+
+.center_by_flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center_by_grid {
+    width: 100%;
+    display: grid;
+    place-content: center;
+    gap: 1em;
+}
+
+.inactive {
+    display: none;
+}
+
+.hide {
+    opacity: 0;
+}
+
+.show {
+    opacity: 1;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: var(--clr-blck-two);
+}

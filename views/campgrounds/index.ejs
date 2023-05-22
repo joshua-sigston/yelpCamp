@@ -1,0 +1,10 @@
+<% layout('layouts/biolerplate') %>
+   <section class="campgrounds_list">
+        <h1>Campgrounds Index</h1>
+        <a href="/campgrounds/submit-camp">Add Campground</a>
+        <ul>
+            <% for(let campground of campgrounds) { %>
+                <li><a href="campgrounds/<%= campground._id %>"><%= campground.title %></a></li>
+            <% } %>
+        </ul>
+   </section>

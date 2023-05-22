@@ -1,0 +1,43 @@
+<% layout('layouts/biolerplate') %>
+    <p><%= campground.title %></p>
+    <p><%= campground.location %></p>
+    <p>Submitted by whom <%= campground.author.username %></p>
+    <img src="<%= campground.image  %>" alt="">
+    <p><%= campground.description %></p>
+    <button>
+        <a href="/campgrounds/<%= campground._id %>/edit">Edit</a>
+    </button>
+    <% if(currentUser && campground.author.equals(currentUser._id)) {%>
+    <div>
+        <form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
+            <button>Delete</button>
+        </form>
+        <%}%>
+    </div>
+    <% if(currentUser) { %>
+    <h1>Review</h1>
+    <form action="/campgrounds/<%= campground._id %>/reviews" method="POST">
+        <div>
+            <label for="rating">Rating</label>
+            <input type="range" min="1" max="5" id="rating" name="review[rating]">
+        </div>
+        <div class="">
+            <label for="body">Review</label>
+            <textarea name="review[body]" id="" cols="30" rows="3" required></textarea>
+        </div>
+        <button>Submit Review</button>
+    </form>
+    <% } %>
+    <% for(let review of campground.reviews){ %>
+        <p><%= review.rating %></p>
+        <p>By: <%= review.author.username %></p>
+        <p><%= review.body %></p>
+        <form action="/campgrounds/<%= campground._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
+            <button>Delete</button>
+        </form>
+    <% } %>
+
+    <footer>
+        <a href="/campgrounds">All Campgrounds</a>
+        <a href="/campgrounds/<%= campground._id %>/edit">Edit</a>
+    </footer>
