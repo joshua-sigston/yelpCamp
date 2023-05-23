@@ -1,4 +1,5 @@
 <% layout('layouts/biolerplate') %>
+<link rel="stylesheet" href="/stars.css">
     <p><%= campground.title %></p>
     <p><%= campground.location %></p>
     <p>Submitted by whom <%= campground.author.username %></p>
@@ -21,6 +22,7 @@
             <label for="rating">Rating</label>
             <input type="range" min="1" max="5" id="rating" name="review[rating]">
         </div>
+        <h3>Rated element name</h3><%= review.rating %>
         <div class="">
             <label for="body">Review</label>
             <textarea name="review[body]" id="" cols="30" rows="3" required></textarea>
@@ -32,9 +34,11 @@
         <p><%= review.rating %></p>
         <p>By: <%= review.author.username %></p>
         <p><%= review.body %></p>
-        <form action="/campgrounds/<%= campground._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
-            <button>Delete</button>
-        </form>
+        <% if (currentUser && review.author.equals(currentUser._id)) { %>
+            <form action="/campgrounds/<%= campground._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
+                <button>Delete</button>
+            </form>
+        <% } %>
     <% } %>
 
     <footer>
